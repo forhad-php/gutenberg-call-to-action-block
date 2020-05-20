@@ -1,0 +1,9 @@
+Just write below command →
+
+`npm install`
+
+After get node_modules, write command →
+
+`npm start`
+
+Done!

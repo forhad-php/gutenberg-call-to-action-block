@@ -1,0 +1,15 @@
+{
+  "name": "call-to-action",
+  "version": "1.0.0",
+  "description": "This is a call to action block",
+  "main": "build/index.js",
+  "scripts": {
+    "start": "wp-scripts start",
+    "build": "wp-scripts build"
+  },
+  "author": "Forhad",
+  "license": "GPL-2.0-only",
+  "devDependencies": {
+    "@wordpress/scripts": "9.1.0"
+  }
+}
