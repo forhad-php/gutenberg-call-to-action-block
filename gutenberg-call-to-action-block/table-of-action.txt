@@ -4,9 +4,9 @@
 https://developer.wordpress.org/block-editor/tutorials/javascript/js-build-setup/#node-package-manager-npm
 1.2 Run → npm install --save-dev --save-exact @wordpress/scripts
 https://developer.wordpress.org/block-editor/tutorials/javascript/js-build-setup/#using-npm-to-install-packages
-1.3 Setting Up wp-scripts build →
+1.3 Setting Up wp-scripts build → Create File `src/index.js` and paste the code from below link
 https://developer.wordpress.org/block-editor/tutorials/javascript/js-build-setup/#setting-up-wp-scripts-build
-1.4 Development Mode →
+1.4 Development Mode → add this two line into the `package.json` file
 https://developer.wordpress.org/block-editor/tutorials/javascript/js-build-setup/#development-mode
 
 2.0 Writing Your First Block →
@@ -18,7 +18,8 @@ https://developer.wordpress.org/block-editor/tutorials/block-tutorial/writing-yo
 2.3 Create production build:→ `npm run build`
 2.4 Start development builds:→ `npm start`
 2.5 Checkout the main plugin file, should be register path → `plugins_url( 'build/index.js', __FILE__ )`
-2.6 Now surely you find out this block into "Layout Elements" as named "Basic Example"
+2.6 Activate the plugin!!
+2.7 Now surely you find out this block into "Layout Elements" as named "Basic Example"
 
 Workflow →
 ============
