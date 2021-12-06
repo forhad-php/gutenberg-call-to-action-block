@@ -20,7 +20,8 @@
 	} );
 	```
 	- Source: https://github.com/forhad-php/gutenberg-call-to-action-block/blob/master/gutenberg-call-to-action-block/src/index.js
-## 6. Create file `src/style.css` and `src/editor.css` then paste the code from below in both files
+## 6. Create file `src/style.css` and `src/editor.css` then paste the code from below in both files.
+	- The file `style.css` is for display mode and `editor.css` is for editor mode.
 	```CSS
 	.cta-container {
 		border: 2px solid red;
@@ -46,6 +47,7 @@
 		// automatically load dependencies and version.
 		$asset_file = include plugin_dir_path( __FILE__ ) . 'build/index.asset.php';
 
+		// Enqueue script
 		wp_register_script(
 			'gutenberg-examples-01-esnext',
 			plugins_url( 'build/index.js', __FILE__ ),
@@ -54,10 +56,29 @@
 			true,
 		);
 
+		// Enqueue style on editor
+		wp_register_style(
+			'gutenberg-examples-01-editor',
+			plugins_url( 'src/editor.css', __FILE__ ),
+			array( 'wp-edit-blocks' ),
+			filemtime( plugin_dir_path( __FILE__ ) . 'src/editor.css' ), // filemtime() returns the last time of when its content was modified.
+		);
+
+		// Enqueue style on display
+		wp_register_style(
+			'gutenberg-examples-01',
+			plugins_url( 'src/style.css', __FILE__ ),
+			array(),
+			filemtime( plugin_dir_path( __FILE__ ) . 'src/style.css' ), // filemtime() returns the last time of when its content was modified.
+		);
+
+		// Register the block 
 		register_block_type(
 			'gutenberg-examples/example-01-basic-esnext',
 			array(
 				'api_version'   => 2,
+				'style'         => 'gutenberg-examples-01',
+				'editor_style'  => 'gutenberg-examples-01-editor',
 				'editor_script' => 'gutenberg-examples-01-esnext',
 			)
 		);
