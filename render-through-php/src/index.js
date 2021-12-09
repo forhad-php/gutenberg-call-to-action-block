@@ -11,21 +11,12 @@ registerBlockType( 'gutenberg-examples/example-01-basic-esnext', {
 	title: 'Basic Example',
 	icon: 'smiley',
 	category: 'design',
-
-	/**
-	 * Custom attributes :
-	 * --------------------
-	 *
-	 * 1. How to create and set attribute
-	 * 2. How to use the richText markup element
-	 */
-	 attributes: {
-
+	attributes: {
 		titleColor: {
 			type: 'string',
 			default: 'black',
 		},
-		overlayOpacity: {
+		postsPerPage: {
 			type: 'number',
 			default: 0.3
 		},
@@ -35,35 +26,43 @@ registerBlockType( 'gutenberg-examples/example-01-basic-esnext', {
 
 		const {
 			titleColor,
-			overlayOpacity
+			postsPerPage
 		} = attributes;
 
 		function onTitleColorChange( newColor ) {
 
 			setAttributes({ titleColor: newColor });
 		}
-		function onOverlayOpacityChange( newOpacity ) {
+		function onpostsPerPageChange( newOpacity ) {
 
-			setAttributes({ overlayOpacity: newOpacity });
+			setAttributes({ postsPerPage: newOpacity });
 		}
 
 		return ([
-			<InspectorControls style={{ marginBottom: '40px' }}>
+			<InspectorControls>
 				{/* https://developer.wordpress.org/block-editor/components/panel/#design-guidelines */}
-				<PanelBody title={ 'Font Color Settings' }>
+				<PanelBody
+					title={ 'Font Color Settings' }
+					icon="admin-appearance"
+					initialOpen={ true }>
 					<p><strong>Select a Title color:</strong></p>
-					<ColorPalette value={ titleColor }
-								  onChange={ onTitleColorChange } />
+					<ColorPalette
+						value={ titleColor }
+						onChange={ onTitleColorChange } />
 				</PanelBody>
 
-				<PanelBody title={ 'Background Image Settings' }>
+				<PanelBody
+					title={ 'Posts Control' }
+					icon="admin-generic"
+					initialOpen={ false }>
 					<RangeControl
-						label={ 'Overlay Opacity' }
-						value={ overlayOpacity }
-						onChange={ onOverlayOpacityChange }
-						min={ 0 }
-						max={ 1 }
-						step={ 0.01 } />
+						label={ 'Total Post' }
+						help={ 'Set how much posts you want to show.' }
+						value={ postsPerPage }
+						onChange={ onpostsPerPageChange }
+						min={ 1 }
+						max={ 100 }
+						step={ 1 } />
 				</PanelBody>
 			</InspectorControls>,
 
