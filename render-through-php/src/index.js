@@ -3,7 +3,7 @@ import { registerBlockType } from '@wordpress/blocks';
 // https://github.com/WordPress/gutenberg/tree/master/packages/block-editor
 import { RichText, InspectorControls, ColorPalette, MediaUpload } from '@wordpress/block-editor';
 // https://github.com/WordPress/gutenberg/tree/master/packages/components
-import { PanelBody, Button, RangeControl } from '@wordpress/components';
+import { PanelBody, Button, RangeControl, SelectControl } from '@wordpress/components';
 // https://developer.wordpress.org/block-editor/reference-guides/packages/packages-server-side-render/
 import ServerSideRender from '@wordpress/server-side-render';
 
@@ -20,13 +20,18 @@ registerBlockType( 'gutenberg-examples/example-01-basic-esnext', {
 			type: 'number',
 			default: 0.3
 		},
+		category: {
+			type: 'string',
+			default: 'uncategorized'
+		},
 	},
 
 	edit({ attributes, setAttributes }) {
 
 		const {
 			titleColor,
-			postsPerPage
+			postsPerPage,
+			category
 		} = attributes;
 
 		function onTitleColorChange( newColor ) {
@@ -36,6 +41,10 @@ registerBlockType( 'gutenberg-examples/example-01-basic-esnext', {
 		function onpostsPerPageChange( newOpacity ) {
 
 			setAttributes({ postsPerPage: newOpacity });
+		}
+		function onCatChange( newCategory ) {
+
+			setAttributes({ category: newCategory });
 		}
 
 		return ([
@@ -64,6 +73,24 @@ registerBlockType( 'gutenberg-examples/example-01-basic-esnext', {
 						max={ 100 }
 						step={ 1 } />
 				</PanelBody>
+
+				<PanelBody
+					title={ 'Category' }
+					icon="category"
+					initialOpen={ false }>
+					<SelectControl
+						label={ 'Category' }
+						help={ 'Set a post category.' }
+						value={ category }
+						options={[
+							{ label: 'Cat', value: 'uncategorized' },
+							{ label: 'Dog', value: 'dog' },
+							{ label: 'Bird', value: 'bird' },
+						]}
+						onChange={ onCatChange }
+					/>
+				</PanelBody>
+
 			</InspectorControls>,
 
 			// Posts direct show from 'render_callback' on the editor.
