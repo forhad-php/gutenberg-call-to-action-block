@@ -26,14 +26,22 @@ registerBlockType( 'gutenberg-examples/example-01-basic-esnext', {
 	attributes: {
 		titleColor: {
 			type: 'string',
-			default: 'black',
+			default: null,
 		},
 		postsPerPage: {
 			type: 'number',
-			default: 0.3
+			default: null,
+		},
+		singleSelect: {
+			type: 'string', // If the SelectControl is not multiple then use 'string'
+			default: 'uncategorized'
 		},
 		category: {
-			type: 'string',
+			type: 'array', // If the SelectControl is multiple then use 'array'
+			default: 'uncategorized'
+		},
+		theCategories: {
+			type: 'array',
 			default: 'uncategorized'
 		},
 	},
@@ -43,33 +51,10 @@ registerBlockType( 'gutenberg-examples/example-01-basic-esnext', {
 		const {
 			titleColor,
 			postsPerPage,
-			category
+			singleSelect,
+			category,
+			theCategories
 		} = attributes;
- 
-		// How to input categories in SelectControl component
-		// https://wordpress.stackexchange.com/questions/372134/gutenberg-block-get-categories-in-selectcontrol
-		// Or try to use checkbox
-		// https://developer.wordpress.org/block-editor/reference-guides/components/checkbox-control/#when-to-use-checkboxes
-		function MyAuthorsListBase() {
-
-			const { useSelect } = wp.data;
-
-			const categories = useSelect( ( select ) => {
-				return select( 'core' ).getEntityRecords('taxonomy', 'category');
-			}, [] );
-		
-			if ( ! categories ) {
-				return null;
-			}
-		
-			return (
-				<ul>
-					{ categories.map( ( category ) => (
-						<li key={ category.id }>{ category.name }</li>
-					) ) }
-				</ul>
-			);
-		}
 
 		function onTitleColorChange( newColor ) {
 
@@ -79,9 +64,43 @@ registerBlockType( 'gutenberg-examples/example-01-basic-esnext', {
 
 			setAttributes({ postsPerPage: newOpacity });
 		}
+		function onmsChange( newsingleSelect ) {
+
+			setAttributes({ singleSelect: newsingleSelect });
+		}
 		function onCatChange( newCategory ) {
 
 			setAttributes({ category: newCategory });
+		}
+
+		// How to input categories in SelectControl component
+		// https://wordpress.stackexchange.com/questions/372134/gutenberg-block-get-categories-in-selectcontrol
+		// Or try to use checkbox
+		// https://developer.wordpress.org/block-editor/reference-guides/components/checkbox-control/#when-to-use-checkboxes
+		function MyAuthorsListBase() {
+
+			const { useSelect } = wp.data;
+
+			const GMcategories = useSelect( ( select ) => {
+				return select( 'core' ).getEntityRecords('taxonomy', 'category');
+			}, [] );
+		
+			if ( ! GMcategories ) {
+				return null;
+			}
+
+			return (
+				<SelectControl
+					multiple
+					label={ 'Categories' }
+					help={ 'Set categorys.' }
+					value={ theCategories }
+					options={ GMcategories.map( ( GMcategory ) => (
+								{ label: GMcategory.name, value: GMcategory.id }
+							))}
+					onChange={ theNewCategory => setAttributes( { theCategories: theNewCategory } ) }
+				/>
+			);
 		}
 
 		return ([
@@ -113,13 +132,32 @@ registerBlockType( 'gutenberg-examples/example-01-basic-esnext', {
 				</PanelBody>
 
 				<PanelBody
-					title={ 'Category' }
+					title={ 'Single Select' }
 					icon="category"
 					initialOpen={ false }>
 					<Heading>The Heading Component.</Heading>
 					<SelectControl
+						label={ 'Select Options' }
+						help={ 'Set an option.' }
+						value={ singleSelect }
+						options={[
+							{ label: 'Egg', value: 'egg' },
+							{ label: 'Fox', value: 'fox' },
+							{ label: 'Vimo', value: 'vimo' },
+						]}
+						onChange={ onmsChange }
+					/>
+				</PanelBody>
+				
+				<PanelBody
+					title={ 'Multiple Select' }
+					icon="category"
+					initialOpen={ false }>
+					<Heading>The Heading Component.</Heading>
+					<SelectControl
+						multiple
 						label={ 'Category' }
-						help={ 'Set a post category.' }
+						help={ 'Set categorys.' }
 						value={ category }
 						options={[
 							{ label: 'Uncategorized', value: 'uncategorized' },
