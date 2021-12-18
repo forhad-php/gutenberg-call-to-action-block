@@ -16,11 +16,14 @@ function post_layouts_block_render_block_core( $attributes ) {
 	// Get attributes value from editor page.
 	$post_title_color = $attributes['titleColor'] ? $attributes['titleColor'] : 'blue';
 	$posts_per_page   = $attributes['postsPerPage'] ? $attributes['postsPerPage'] : 6;
+	$post_categories  = $attributes['theCategories'] ? $attributes['theCategories'] : '';
 
-	$args       = array(
+	$args = array(
 		'posts_per_page' => $posts_per_page,
 		'post_type'      => 'post',
+		'cat'            => $post_categories,
 	);
+
 	$post_query = new WP_Query( $args );
 
 	if ( $post_query->have_posts() ) {
