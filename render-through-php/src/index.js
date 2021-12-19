@@ -26,7 +26,7 @@ registerBlockType( 'gutenberg-examples/example-01-basic-esnext', {
 	attributes: {
 		titleColor: {
 			type: 'string',
-			default: null,
+			default: '#0170b9', // This value of property cannot read as null (Using 'hex')
 		},
 		postsPerPage: {
 			type: 'number',
@@ -73,10 +73,8 @@ registerBlockType( 'gutenberg-examples/example-01-basic-esnext', {
 			setAttributes({ category: newCategory });
 		}
 
-		// How to input categories in SelectControl component
-		// https://wordpress.stackexchange.com/questions/372134/gutenberg-block-get-categories-in-selectcontrol
-		// Or try to use checkbox
-		// https://developer.wordpress.org/block-editor/reference-guides/components/checkbox-control/#when-to-use-checkboxes
+		// Use the below CHOSEN package to make the multiple select awesome.
+		// https://harvesthq.github.io/chosen/
 		function MyAuthorsListBase() {
 
 			const { useSelect } = wp.data;
@@ -92,8 +90,8 @@ registerBlockType( 'gutenberg-examples/example-01-basic-esnext', {
 			return (
 				<SelectControl
 					multiple
-					label={ 'Categories' }
-					help={ 'Set categorys.' }
+					label={ 'Category List:' }
+					help={ 'To select multiple categories press \'CTRL\'' }
 					value={ theCategories }
 					options={ GMcategories.map( ( GMcategory ) => (
 								{ label: GMcategory.name, value: GMcategory.id }
@@ -168,7 +166,13 @@ registerBlockType( 'gutenberg-examples/example-01-basic-esnext', {
 					/>
 				</PanelBody>
 
-				<MyAuthorsListBase />
+				<PanelBody
+					title={ 'Select Categories' }
+					icon="category"
+					initialOpen={ false }>
+					<Heading>Set one or multiple categories.</Heading>
+					<MyAuthorsListBase />
+				</PanelBody>
 
 			</InspectorControls>,
 
