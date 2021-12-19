@@ -14,7 +14,7 @@ function post_layouts_block_render_block_core( $attributes ) {
 	// return '[wpgp_slider id="243"]';
 
 	// Get attributes value from editor page.
-	$post_title_color = $attributes['titleColor'] ? $attributes['titleColor'] : 'blue';
+	$post_title_color = $attributes['titleColor'] ? $attributes['titleColor'] : '#0170b9';
 	$posts_per_page   = $attributes['postsPerPage'] ? $attributes['postsPerPage'] : 6;
 	$post_categories  = $attributes['theCategories'] ? $attributes['theCategories'] : '';
 
@@ -28,7 +28,8 @@ function post_layouts_block_render_block_core( $attributes ) {
 
 	if ( $post_query->have_posts() ) {
 
-		$list_items_markup = '<style>#forhad-guten-posts li {color: ' . $post_title_color . ';}</style><div id="forhad-guten-posts"><ul>';
+		$list_items_markup = '<style>#forhad-guten-posts li {color: ' . $post_title_color . ';}</style>
+								<div id="forhad-guten-posts"><ul>';
 		while ( $post_query->have_posts() ) {
 
 			$post_query->the_post();
@@ -39,7 +40,7 @@ function post_layouts_block_render_block_core( $attributes ) {
 	}
 }
 
-// Register Block and initial setupment
+// Register Block and initial setupment.
 function gutenberg_examples_01_register_block() {
 
 	// automatically load dependencies and version.
