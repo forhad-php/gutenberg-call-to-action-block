@@ -4,7 +4,6 @@
 	- Install NodeJS (Recommanded for most users)
 ### 2. Write the command in Cmder `npm init` and execute
 	- Press enter and fill up the needs
-### 2.1 Run → `npm install --save-dev --save-exact @wordpress/scripts`
 ### 3. Run the Command `cd post-block`
 ### 4. Run the Command `npm install --save-dev --save-exact @wordpress/scripts`
 ### 5. Create a File `src/index.js` and paste the code from below
