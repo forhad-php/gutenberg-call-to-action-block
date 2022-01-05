@@ -93,9 +93,9 @@
 
 
 
-### For contributers
+#### For contributers
 ====================
 - Source: https://developer.wordpress.org/block-editor/tutorials/javascript/js-build-setup/#summary
-### 0. Just remove the `node_modules` and upload into github.
-### 1. They install dependencies through run the command `npm install`
+#### 0. Just remove the `node_modules` and upload into github.
+#### 1. They install dependencies through run the command `npm install`
 Thats it!
