@@ -1,9 +1,9 @@
 ## To create style component and render styles : 
 
-#### Run the command `npm install style-it --save`
-#### And import it `import Style from 'style-it';`
+#### Run the command → `npm install style-it --save`
+#### And import it → `import Style from 'style-it';`
 #### Implementation →
-```React
+```JS
 <div>
   <Style>{`#forhad-guten-posts li{color: ${titleColor} !important;}`}</Style>
   <ServerSideRender
