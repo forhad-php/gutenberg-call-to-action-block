@@ -15,6 +15,7 @@
 \
 \
 \
+
 ## Post Block - If has `package.json` file →
 
 #### Just install dependencies via run command `npm install`
@@ -24,6 +25,7 @@
 \
 \
 \
+
 # Post Block - If lost the track →
 
 #### After command `npm init`
@@ -59,3 +61,36 @@ Is this OK? (yes) yes
 ```
 
 ### Now run the Command `npm start` to start development!
+\
+\
+\
+\
+\
+
+# Registration multi block and include at `src/index.js`
+
+#### First of all, create a file at `src/another-block/index.js` and write the below code :
+```JS
+import { registerBlockType } from '@wordpress/blocks';
+
+registerBlockType( 'my-plugin/notice', {
+	title: 'Notice',
+	icon: 'admin-plugins',
+	category: 'design',
+	edit: () => <div>Hola, mundo!</div>,
+	save: () => <div>Hola, mundo!</div>,
+} );
+```
+
+#### Now write the code below at `src/index.js` to import the block :
+```JS
+import './another-block/';
+```
+
+** Sources →
+*
+* Need another render_callback for this particular block? Just follow the below link :
+* https://developer.wordpress.org/block-editor/reference-guides/block-api/block-metadata/#php-server-side
+* 
+* Another resource :
+* https://stackoverflow.com/questions/68370984/gutenberg-blocks-registering-more-than-one-block-with-register-block-type-from
