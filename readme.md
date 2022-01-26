@@ -17,6 +17,7 @@
 ## Post Block - If has `package.json` file →
 =========================================
 #### Just install dependencies via run command `npm install`
+#### Then create production build via run command `npm run build`
 
 
 
