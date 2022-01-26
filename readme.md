@@ -10,9 +10,6 @@
       block={ "gutenberg-examples/example-01-basic-esnext" } />
 </div>
 ```
-
-
-
 \
 \
 \
@@ -22,14 +19,11 @@
 
 #### Just install dependencies via run command `npm install`
 #### Then create production build via run command `npm run build`
-
-
-
-.
-.
-.
-.
-.
+\
+\
+\
+\
+\
 # Post Block - If lost the track →
 
 #### After command `npm init`
