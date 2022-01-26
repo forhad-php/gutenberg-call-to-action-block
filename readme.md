@@ -1,4 +1,5 @@
-## To create style component and render styles : 
+## To create style component and render styles :
+================================================
 
 #### Run the command → `npm install style-it --save`
 #### And import it → `import Style from 'style-it';`
