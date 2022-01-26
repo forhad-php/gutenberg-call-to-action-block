@@ -1,5 +1,5 @@
 ## To create style component and render styles :
-================================================
+=============================================
 
 #### Run the command → `npm install style-it --save`
 #### And import it → `import Style from 'style-it';`
@@ -15,13 +15,13 @@
 
 
 ## Post Block - If has `package.json` file →
-============================================
+=========================================
 #### Just install dependencies via run command `npm install`
 
 
 
 # Post Block - If lost the track →
-==================================
+========================================
 #### After command `npm init`
 
 package name: (post-block)
