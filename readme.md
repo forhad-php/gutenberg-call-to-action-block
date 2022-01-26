@@ -12,7 +12,7 @@
 ```
 
 # Post Block - If lost the track →
-### After command `npm init`
+#### After command `npm init`
 
 package name: (post-block)
 version: (1.0.0) (write the current version)
@@ -26,9 +26,9 @@ license: (ISC)
 
 Is this OK? (yes) yes
 
-### Execute the command `npm install --save-dev --save-exact @wordpress/scripts`
+#### Execute the command `npm install --save-dev --save-exact @wordpress/scripts`
 
-### Open `package.json` and replace the `"scripts": {}` property as like below :
+#### Open `package.json` and replace the `"scripts": {}` property as like below :
 ```JS
 "scripts": {
 	"start": "wp-scripts start",
