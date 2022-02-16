@@ -93,3 +93,28 @@ import './another-block/';
 * 
 * Another resource :
 * https://stackoverflow.com/questions/68370984/gutenberg-blocks-registering-more-than-one-block-with-register-block-type-from
+\
+\
+\
+\
+\
+
+# Get Post Title from WordPress Core Data.
+```JS
+const { select } = wp.data;
+const posts = select('core').getEntityRecords( 'postType', 'post', {per_page: 5});
+
+return ([
+	<div class="cta-container" style={{background: 'gray'}}>
+
+		<ul className="post-title">
+			{posts.map((item) => (
+				<li className="post-title">
+				{item.title.rendered}
+				</li>
+			))}
+		</ul>
+	</div>
+]);
+```
+> NOTE: For the first time the block should be saved on editor page. Then you will able to see post titles.
