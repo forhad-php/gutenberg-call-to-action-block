@@ -116,5 +116,5 @@ return ([
 		</ul>
 	</div>
 ]);
+// NOTE: For the first time the block should be saved on editor page. Then you will able to see post titles.
 ```
-> NOTE: For the first time the block should be saved on editor page. Then you will able to see post titles.
