@@ -1,3 +1,46 @@
+## React Awesome Popover Package Usage :
+
+#### Execute the command →
+`npm i react-awesome-popover`
+
+#### Import it →
+`import ReactAwesomePopover from 'react-awesome-popover';`
+
+#### Assign the popover →
+`const Popover = ReactAwesomePopover;`
+
+#### Code →
+```HTML
+<Popover>
+    <button>The Target</button>
+    <div>The content</div>
+</Popover>
+````
+
+#### Nested Component →
+```JS
+return ([
+    <MyToggleControl />,
+    <Popover>
+	<button>The Target</button>
+	<div>
+	<NumberControl
+	    label={ __( 'Set column of the posts:' ) }
+	    onChange={ onPostColChange }
+	    value={ postCol }
+				/>
+	</div>
+    </Popover>
+]);
+```
+
+Icon pack using popover →
+https://codesandbox.io/s/ur4cb?file=/src/react-icon-picker.js
+\
+\
+\
+\
+\
 ## To create style component and render styles :
 
 #### Run the command → `npm install style-it --save`
