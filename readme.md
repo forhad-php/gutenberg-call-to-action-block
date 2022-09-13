@@ -1,3 +1,7 @@
+## Import WordPress Icon :
+`npm install @wordpress/icons --save`
+Source : https://developer.wordpress.org/block-editor/reference-guides/packages/packages-icons/
+
 ## React Awesome Popover Package Usage :
 
 #### Execute the command →
