@@ -1,16 +1,3 @@
-- `npm init`
-- `npm install --save-dev --save-exact @wordpress/scripts`
-https://developer.wordpress.org/block-editor/how-to-guides/javascript/js-build-setup/#using-npm-to-install-packages
-- Changing scripts in package.json
-https://developer.wordpress.org/block-editor/how-to-guides/javascript/js-build-setup/#development-mode
-- register block in PHP
-FancyPost PRO\post-block\includes\class-post-block.php
-- register block in JS
-https://developer.wordpress.org/block-editor/how-to-guides/javascript/js-build-setup/#setting-up-wp-scripts-build
-- `npm run build`
-So that automatic create a build folder and field.
-^_____^ ^_____^ ^_____^
-
 ## Import WordPress Icon :
 `npm install @wordpress/icons --save`
 Source : https://developer.wordpress.org/block-editor/reference-guides/packages/packages-icons/
