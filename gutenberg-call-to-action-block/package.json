@@ -10,6 +10,6 @@
   "author": "Forhad",
   "license": "GPL-2.0-only",
   "devDependencies": {
-    "@wordpress/scripts": "9.1.0"
+    "@wordpress/scripts": "31.0.0"
   }
 }
